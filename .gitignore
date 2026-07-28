@@ -1,0 +1,27 @@
+cd ~/Downloads/food-menu-information-ar[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+*.apk
+*.aab
+
+Packages/*.tgz
+Assets/Editor/Migration/*.tgz[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+.vscode/
+.idea/
+.DS_Store
+*.apk
+*.aab
+*.tgz
