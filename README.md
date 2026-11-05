@@ -95,7 +95,7 @@ The Vuforia package (~130 MB) is too large for GitHub, so it is not included.
 1. Create a free **Basic** licence key in the [Vuforia License Manager](https://developer.vuforia.com/develop/licenses).
 2. In Unity, select **ARCamera**, click **Open Vuforia Engine configuration**, and paste the key into **App License Key**.
 
-> The key is stored in `Assets/VuforiaLicense.cs`, which is **git-ignored** so the key isn't published.
+> Always use **your own** key. The project's key is tied to its owner's Vuforia account.
 
 ### 5. Try it in the Editor
 1. Press **Play**. The splash screen appears, followed by the menu.
