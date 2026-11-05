@@ -22,4 +22,4 @@ Edit `source/menu_card.html`, re-render it (e.g. Chrome headless screenshot at 1
 If you change prices or dishes on the card, update `Assets/ARMenu/Resources/ARMenu/menu_data.json` too.
 
 ## Credits
-Done by: Smriti Nukula & Shreyas Abiram YR · Fonts: Fredoka and Pacifico (SIL Open Font License 1.1, licences in `source/fonts`).
+Done by: Smriti Nukula · Fonts: Fredoka and Pacifico (SIL Open Font License 1.1, licences in `source/fonts`).

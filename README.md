@@ -180,20 +180,9 @@ food-menu-information-ar/
 
 ## 👩‍💻 Done by
 
-<table>
-<tr>
-<td align="center">
 <b>Smriti Nukula</b><br/>
 XR Developer · Unity Developer · Creative Technologist<br/>
-<a href="https://github.com/smritinukula16">GitHub</a> ·
-<a href="https://www.linkedin.com/in/smriti-n-04739a300">LinkedIn</a>
-</td>
-<td align="center">
-<b>Shreyas Abiram YR</b><br/>
-Teammate
-</td>
-</tr>
-</table>
+<a href="https://github.com/smritinukula16">GitHub</a> · <a href="https://www.linkedin.com/in/smriti-n-04739a300">LinkedIn</a>
 
 ---
 
@@ -212,4 +201,4 @@ Teammate
 All product names, logos and trademarks belong to their respective owners.
 The menu content and prices are sample data for demonstration purposes.
 
-© 2026 Smriti Nukula & Shreyas Abiram YR. All rights reserved.
+© 2026 Smriti Nukula. All rights reserved.

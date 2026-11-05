@@ -77,3 +77,6 @@ sysinfo.txt
 ._*
 Thumbs.db
 Desktop.ini
+
+# --- Local-only documents (not published) ---
+/Handbook/
