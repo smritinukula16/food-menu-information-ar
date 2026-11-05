@@ -83,4 +83,48 @@ public class FoodMenuManager : MonoBehaviour
         if (proteinText) proteinText.text = info.protein;
         if (oilText) oilText.text = info.oil;
     }
+
+    // ------------------------------------------------------------------
+    // Key-based access used by the AR Menu UI (Assets/ARMenu).
+    // These only route to the existing methods/fields above, so the
+    // original button wiring and model switching keep working unchanged.
+    // ------------------------------------------------------------------
+
+    public static readonly string[] ModelKeys = { "pizza", "burger", "fries" };
+
+    public GameObject GetModel(string key)
+    {
+        switch (Normalize(key))
+        {
+            case "pizza": return pizzaModel;
+            case "burger": return burgerModel;
+            case "fries": return friesModel;
+            default: return null;
+        }
+    }
+
+    public FoodInfo GetInfo(string key)
+    {
+        switch (Normalize(key))
+        {
+            case "pizza": return pizzaInfo;
+            case "burger": return burgerInfo;
+            case "fries": return friesInfo;
+            default: return null;
+        }
+    }
+
+    /// <summary>Shows the model for the given key using the original ShowPizza/ShowBurger/ShowFries methods.</summary>
+    public bool ShowByKey(string key)
+    {
+        switch (Normalize(key))
+        {
+            case "pizza": ShowPizza(); return true;
+            case "burger": ShowBurger(); return true;
+            case "fries": ShowFries(); return true;
+            default: return false;
+        }
+    }
+
+    static string Normalize(string key) => string.IsNullOrEmpty(key) ? string.Empty : key.Trim().ToLowerInvariant();
 }

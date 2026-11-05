@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:"Fredoka";src:url("../fonts_dl/Fredoka.ttf");font-weight:300 700}
+@font-face{font-family:"Pacifico";src:url("../fonts_dl/Pacifico.ttf")}
+html,body{margin:0;width:1024px;height:1024px;overflow:hidden;background:transparent}
+.bg{position:absolute;inset:0;background:#C9B8F2}
+.badge{position:absolute;left:50%;top:50%;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;background:#14111B;
+  box-shadow:0 0 0 26px #FFFFFF,0 0 0 40px #14111B;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.num{font-family:"Fredoka";font-weight:700;font-size:210px;color:#C9B8F2;line-height:.9;letter-spacing:2px}
+.cafe{font-family:"Pacifico";font-size:120px;color:#FFFFFF;line-height:1;margin-top:-4px}
+.spark{position:absolute;width:90px;height:90px}
+</style></head><body>
+<div class="bg" id="bg"></div>
+<div id="fg">
+<svg class="spark" style="left:150px;top:150px" viewBox="0 0 40 40"><path d="M20 2 l5 13 l13 5 l-13 5 l-5 13 l-5 -13 l-13 -5 l13 -5z" fill="#FFFFFF" stroke="#14111B" stroke-width="2.5" stroke-linejoin="round"/></svg>
+<svg class="spark" style="left:800px;top:780px;width:70px;height:70px" viewBox="0 0 40 40"><path d="M20 2 l5 13 l13 5 l-13 5 l-5 13 l-5 -13 l-13 -5 l13 -5z" fill="#7C5CC6" stroke="#14111B" stroke-width="2.5" stroke-linejoin="round"/></svg>
+<div class="badge"><div class="num">2616</div><div class="cafe">cafe</div></div>
+</div>
+<script>
+const mode=location.hash.slice(1);
+if(mode==='fg'){document.getElementById('bg').style.display='none';}
+if(mode==='bgonly'){document.getElementById('fg').style.display='none';}
+if(mode==='fg'){const b=document.querySelector('.badge');b.style.transform='scale(0.72)';document.querySelectorAll('.spark').forEach(s=>s.style.display='none');}
+</script></body></html>

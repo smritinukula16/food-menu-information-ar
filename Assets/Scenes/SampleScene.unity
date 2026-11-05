@@ -2164,7 +2164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.17932129, y: -579}
+  m_AnchoredPosition: {x: -190, y: -112}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687347740
@@ -2261,6 +2261,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687347738}
   m_CullTransparentMesh: 1
+--- !u!1 &1723391089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723391091}
+  - component: {fileID: 1723391090}
+  m_Layer: 0
+  m_Name: AR Menu App
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1723391090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723391089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a3fe62fb0994971995a87e338f732f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ARMenu.ARMenuApp
+  foodMenuManager: {fileID: 2113047564}
+  markerEvents: {fileID: 2115961168}
+  legacyCanvas: {fileID: 41800987}
+  hideLegacyCanvas: 1
+  menuDataResource: ARMenu/menu_data
+  theme:
+    background: {r: 0.98039216, g: 0.972549, b: 0.99607843, a: 1}
+    backgroundRaised: {r: 1, g: 1, b: 1, a: 1}
+    surface: {r: 1, g: 1, b: 1, a: 1}
+    surfaceHigh: {r: 0.9411765, g: 0.91764706, b: 0.9843137, a: 1}
+    stroke: {r: 0.8901961, g: 0.8509804, b: 0.95686275, a: 1}
+    ink: {r: 0.078431375, g: 0.06666667, b: 0.105882354, a: 1}
+    shadow: {r: 0.2901961, g: 0.21568628, b: 0.5019608, a: 0.16}
+    textPrimary: {r: 0.08235294, g: 0.07058824, b: 0.10980392, a: 1}
+    textSecondary: {r: 0.3647059, g: 0.33333334, b: 0.44313726, a: 1}
+    textMuted: {r: 0.59607846, g: 0.5647059, b: 0.6745098, a: 1}
+    onAccent: {r: 1, g: 1, b: 1, a: 1}
+    onInk: {r: 1, g: 1, b: 1, a: 1}
+    accent: {r: 0.4862745, g: 0.36078432, b: 0.7764706, a: 1}
+    accentLight: {r: 0.7882353, g: 0.72156864, b: 0.9490196, a: 1}
+    accentDeep: {r: 0.29411766, g: 0.21568628, b: 0.5294118, a: 1}
+    veg: {r: 0.18431373, g: 0.6039216, b: 0.2901961, a: 1}
+    nonVeg: {r: 0.7019608, g: 0.2509804, b: 0.16470589, a: 1}
+    spice: {r: 0.8862745, g: 0.3764706, b: 0.24705882, a: 1}
+    success: {r: 0.18431373, g: 0.6039216, b: 0.2901961, a: 1}
+    warning: {r: 0.7882353, g: 0.47058824, b: 0.12156863, a: 1}
+    displayFont: {fileID: 0}
+    bodyFont: {fileID: 0}
+    strongFont: {fileID: 0}
+  referenceResolution: {x: 1080, y: 1920}
+  canvasSortingOrder: 10
+  presentationStand: 1
+  presentationFillLight: 1
+  autoRotate: 1
+  rotationSpeed: 18
+  thumbnailSize: 512
+  showSplash: 1
+  persistOrder: 1
+  editorMarkerShortcuts: 1
+--- !u!4 &1723391091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723391089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1758642884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,7 +2682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 289, y: -576}
+  m_AnchoredPosition: {x: 289, y: -153}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068690898
@@ -2854,14 +2937,14 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: gemini_generated_image_np4bghnp4bghnp4b_scaled
+  mTrackableName: menu_card_2616
   mInitializedInEditor: 1
   mDataSetPath: 
-  mAspectRatio: 0.5449219
+  mAspectRatio: 1.4189453
   mImageTargetType: 3
-  mWidth: 0.2
-  mHeight: 0.10898437
-  mRuntimeTexture: {fileID: 2800000, guid: b037fec85bfa4e0d8fad859acb5b16a6, type: 3}
+  mWidth: 0.148
+  mHeight: 0.21000391
+  mRuntimeTexture: {fileID: 2800000, guid: 6e14a4476d08b4ea993114d43344c7ff, type: 3}
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
@@ -2901,7 +2984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
   mObserverBehaviour: {fileID: 2115961169}
   mHiddenRoot: {fileID: 0}
-  mTargetName: gemini_generated_image_np4bghnp4bghnp4b_scaled
+  mTargetName: menu_card_2616
   mDatasetName: 
   mCastedBehaviour: {fileID: 2115961169}
   mMeshFilter: {fileID: 0}
@@ -2914,3 +2997,4 @@ SceneRoots:
   - {fileID: 418523121}
   - {fileID: 2115961170}
   - {fileID: 839422517}
+  - {fileID: 1723391091}

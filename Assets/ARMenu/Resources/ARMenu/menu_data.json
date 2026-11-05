@@ -1,0 +1,101 @@
+{
+  "restaurant": {
+    "name": "2616 Cafe",
+    "welcome": "Good food, great vibes, right after class.",
+    "description": "2616 Cafe is the go-to hangout for school and college students: cheesy pizzas, juicy burgers and crispy combos at pocket-friendly prices. Scan the 2616 menu card to see every dish on your table in 3D before you order.",
+    "logoResource": ""
+  },
+  "currencySymbol": "₹",
+  "categories": ["Pizzas", "Burgers", "Snacks & Combos"],
+  "items": [
+    {
+      "id": "pizza",
+      "modelKey": "pizza",
+      "name": "Veggie Cheese Pizza",
+      "category": "Pizzas",
+      "price": 199,
+      "tagline": "Loaded with mozzarella and fresh veggies",
+      "description": "Our 8-inch hand-tossed pizza, baked until the cheese bubbles and the crust turns golden. Topped with crunchy bell peppers, onion and sweet corn. Perfect to share between classes.",
+      "ingredients": ["Hand-tossed wheat base", "Tomato pizza sauce", "Mozzarella cheese", "Bell peppers", "Onion", "Sweet corn", "Oregano & chilli flakes"],
+      "preparationStyle": "Hand-tossed base, oven-baked until golden",
+      "tasteProfile": "Cheesy, tangy and herby",
+      "spiceLevel": 1,
+      "portionSize": "8-inch, 4 slices",
+      "diet": "veg",
+      "allergensVerified": true,
+      "allergens": ["Gluten (wheat)", "Milk (cheese)"],
+      "isPopular": true,
+      "isChefSpecial": false,
+      "imageResource": ""
+    },
+    {
+      "id": "burger",
+      "modelKey": "burger",
+      "name": "Classic Chicken Burger",
+      "category": "Burgers",
+      "price": 149,
+      "tagline": "Juicy grilled chicken in a toasted sesame bun",
+      "description": "A thick, juicy grilled chicken patty layered with melted cheese, crisp lettuce, tomato and our signature burger mayo, all inside a soft toasted sesame bun.",
+      "ingredients": ["Toasted sesame bun", "Grilled chicken patty", "Cheese slice", "Lettuce", "Tomato", "Onion", "Signature burger mayo"],
+      "preparationStyle": "Flame-grilled patty on a toasted bun",
+      "tasteProfile": "Smoky, juicy and creamy",
+      "spiceLevel": 2,
+      "portionSize": "1 burger",
+      "diet": "nonveg",
+      "allergensVerified": true,
+      "allergens": ["Gluten (wheat)", "Milk (cheese)", "Egg (mayo)", "Sesame"],
+      "isPopular": false,
+      "isChefSpecial": true,
+      "imageResource": ""
+    },
+    {
+      "id": "fries",
+      "modelKey": "fries",
+      "name": "Peri Peri Fries Combo",
+      "category": "Snacks & Combos",
+      "price": 129,
+      "tagline": "Crispy fries, a chilled drink and a ketchup dip",
+      "description": "Golden, crispy fries tossed in our zesty peri peri seasoning, served with a tangy ketchup dip and a chilled soft drink. The ultimate study-break combo.",
+      "ingredients": ["Potato fries", "Peri peri seasoning", "Salt", "Tomato ketchup dip", "Chilled soft drink (300 ml)"],
+      "preparationStyle": "Double-fried and tossed in seasoning",
+      "tasteProfile": "Crispy, salty and zesty",
+      "spiceLevel": 2,
+      "portionSize": "150 g + 300 ml drink",
+      "diet": "veg",
+      "allergensVerified": true,
+      "allergens": [],
+      "isPopular": true,
+      "isChefSpecial": false,
+      "imageResource": ""
+    }
+  ],
+  "developer": {
+    "name": "Smriti Nukula",
+    "role": "XR Developer | Unity Developer | Creative Technologist",
+    "link": "github.com/smritinukula16",
+    "year": "2026",
+    "team": ["Shreyas Abiram YR"]
+  },
+  "credits": [
+    { "section": "Concept, Design & Development", "title": "2616 Cafe AR Menu", "author": "Smriti Nukula & Shreyas Abiram YR", "detail": "AR experience, UI/UX design, menu content and Unity development", "license": "" },
+
+    { "section": "3D Food Models", "title": "PBR Pizza", "author": "Unity Asset Store (package #108425)", "detail": "Pizza 3D model", "license": "Standard Unity Asset Store EULA" },
+    { "section": "3D Food Models", "title": "FREE Cartoon Burger Pack", "author": "Unity Asset Store (package #282306)", "detail": "Burger 3D model", "license": "Standard Unity Asset Store EULA" },
+    { "section": "3D Food Models", "title": "French Fries - Free", "author": "DevDen Solutions, Unity Asset Store (package #164017)", "detail": "Fries combo 3D model", "license": "Standard Unity Asset Store EULA" },
+
+    { "section": "AR & Interaction", "title": "Vuforia Engine 11.4", "author": "PTC Inc.", "detail": "Marker-based image target tracking", "license": "Vuforia Engine license" },
+    { "section": "AR & Interaction", "title": "Lean Touch", "author": "Carlos Wilkes, Unity Asset Store (package #30111)", "detail": "Drag, pinch and twist gestures on the 3D food", "license": "Standard Unity Asset Store EULA" },
+
+    { "section": "Engine & Tools", "title": "Unity 6", "author": "Unity Technologies", "detail": "Universal Render Pipeline, TextMesh Pro, Input System", "license": "" },
+
+    { "section": "Typography", "title": "Oswald", "author": "Vernon Adams and the Oswald project authors", "detail": "Headings", "license": "SIL Open Font License 1.1" },
+    { "section": "Typography", "title": "Roboto", "author": "Christian Robertson / Google", "detail": "Buttons and labels", "license": "Apache License 2.0" },
+    { "section": "Typography", "title": "Liberation Sans", "author": "Liberation Fonts project", "detail": "Body text", "license": "SIL Open Font License 1.1" },
+
+    { "section": "Typography", "title": "Fredoka", "author": "The Fredoka Project Authors", "detail": "Printed menu card", "license": "SIL Open Font License 1.1" },
+    { "section": "Typography", "title": "Pacifico", "author": "The Pacifico Project Authors (Vernon Adams)", "detail": "Printed menu card script", "license": "SIL Open Font License 1.1" },
+
+    { "section": "Menu Card & AR Marker", "title": "2616 Cafe menu card", "author": "Smriti Nukula", "detail": "A5 printed menu that doubles as the AR image target", "license": "" }
+  ],
+  "creditsNote": "All product names, logos and trademarks belong to their respective owners. Menu content and prices are sample data created for this demonstration."
+}

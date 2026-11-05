@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Fredoka"; src: url("fonts/Fredoka.ttf"); font-weight: 300 700; }
+  @font-face { font-family: "Pacifico"; src: url("fonts/Pacifico.ttf"); }
+  :root {
+    --ink: #14111B; --lav: #C9B8F2; --lav2: #E6DCFA; --lav3: #F4EFFD; --purple: #7C5CC6;
+    --deep: #4B3787; --white: #FFFFFF; --veg: #2F9A4A; --nonveg: #B3402A; --cheese: #FFD66B; --tomato: #F07A5C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1748px; height: 2480px; overflow: hidden; }
+  body { background: var(--lav2); font-family: "Fredoka", sans-serif; color: var(--ink); position: relative; }
+
+  /* background confetti (irregular on purpose: good for AR tracking) */
+  .bg { position: absolute; inset: 0; }
+
+  .card {
+    position: absolute; left: 92px; top: 96px; width: 1564px; height: 2288px;
+    background: var(--white); border: 8px solid var(--ink); border-radius: 72px;
+    box-shadow: 22px 24px 0 var(--ink);
+    overflow: hidden;
+  }
+
+  /* ---------- header ---------- */
+  .header { position: relative; height: 560px; background: var(--lav); border-bottom: 8px solid var(--ink); overflow: hidden; }
+  .header .scallop { position: absolute; left: -8px; bottom: -2px; }
+  .logo {
+    position: absolute; left: 96px; top: 92px; width: 250px; height: 250px; border-radius: 50%;
+    background: var(--ink); color: var(--lav); border: 8px solid var(--ink);
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 0 0 14px var(--white), 0 0 0 22px var(--ink);
+  }
+  .logo .num { font-weight: 700; font-size: 84px; line-height: 1; letter-spacing: 2px; }
+  .logo .est { font-weight: 500; font-size: 26px; letter-spacing: 8px; color: var(--white); margin-top: 6px; }
+  .title { position: absolute; left: 420px; top: 64px; }
+  .title .big { font-weight: 700; font-size: 250px; line-height: 0.9; letter-spacing: -4px; color: var(--ink);
+                -webkit-text-stroke: 0; text-shadow: 10px 10px 0 var(--white); }
+  .title .script { font-family: "Pacifico"; font-size: 130px; color: var(--purple); position: absolute; left: 530px; top: -20px;
+                   transform: rotate(-8deg); text-shadow: 6px 6px 0 var(--ink); }
+  .tagline { position: absolute; left: 432px; top: 300px; font-weight: 600; font-size: 44px; letter-spacing: 3px; }
+  .tagline span { color: var(--deep); }
+  .ribbon {
+    position: absolute; left: 96px; top: 400px; height: 96px; padding: 0 44px; border-radius: 48px;
+    background: var(--ink); color: var(--white); font-weight: 600; font-size: 44px; display: flex; align-items: center; gap: 22px;
+  }
+  .ribbon b { color: var(--lav); font-weight: 700; }
+
+  .sticker {
+    position: absolute; right: 60px; top: 250px; width: 280px; height: 280px; border-radius: 50%;
+    background: var(--white); border: 8px solid var(--ink); transform: rotate(12deg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    box-shadow: 10px 10px 0 var(--purple);
+  }
+  .sticker .s1 { font-family: "Pacifico"; font-size: 54px; color: var(--purple); line-height: 1.1; }
+  .sticker .s2 { font-weight: 700; font-size: 32px; line-height: 1.1; }
+  .sticker .s3 { font-weight: 500; font-size: 26px; color: var(--deep); margin-top: 6px; }
+  .sticker::after { content: ""; position: absolute; inset: 14px; border-radius: 50%; border: 4px dashed var(--lav); }
+
+  /* ---------- sections ---------- */
+  .menu { position: absolute; top: 600px; left: 70px; right: 70px; }
+  .section-title { display: flex; align-items: center; gap: 22px; margin: 0 0 14px 18px; }
+  .section-title .chip { background: var(--purple); color: var(--white); font-weight: 700; font-size: 40px; padding: 10px 34px;
+                         border-radius: 40px; border: 6px solid var(--ink); transform: rotate(-2deg); }
+  .section-title .line { flex: 1; height: 0; border-top: 6px dashed var(--ink); margin-right: 10px; opacity: 0.85; }
+  .section-title .no { font-family: "Pacifico"; font-size: 46px; color: var(--deep); }
+
+  .item {
+    position: relative; display: flex; gap: 40px; align-items: center; height: 340px; margin-bottom: 44px;
+    background: var(--lav3); border: 6px solid var(--ink); border-radius: 48px; padding: 28px 40px 28px 28px;
+  }
+  .item.alt { background: var(--white); }
+  .art { flex: 0 0 256px; height: 256px; border-radius: 40px; background: var(--lav); border: 6px solid var(--ink);
+         display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .art.dark { background: var(--ink); }
+  .info { flex: 1; }
+  .name-row { display: flex; align-items: center; gap: 22px; }
+  .name { font-weight: 700; font-size: 60px; line-height: 1.05; }
+  .mark { width: 54px; height: 54px; border: 6px solid var(--veg); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; background: #fff; }
+  .mark i { width: 24px; height: 24px; border-radius: 50%; background: var(--veg); display: block; }
+  .mark.nv { border-color: var(--nonveg); }
+  .mark.nv i { width: 0; height: 0; border-radius: 0; background: none; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 26px solid var(--nonveg); }
+  .desc { font-weight: 400; font-size: 35px; line-height: 1.28; margin-top: 10px; color: #3B3448; }
+  .meta { display: flex; align-items: center; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+  .tag { font-weight: 600; font-size: 30px; padding: 8px 24px; border-radius: 30px; border: 5px solid var(--ink); background: var(--white); }
+  .tag.p { background: var(--lav); }
+  .tag.k { background: var(--ink); color: var(--lav); }
+  .chili { font-size: 30px; font-weight: 600; color: var(--deep); display: flex; align-items: center; gap: 6px; }
+  .price {
+    position: absolute; right: -10px; top: -34px; background: var(--ink); color: var(--white); font-weight: 700; font-size: 56px;
+    padding: 12px 40px; border-radius: 44px; transform: rotate(4deg); border: 6px solid var(--white); box-shadow: 0 0 0 6px var(--ink);
+  }
+
+  /* ---------- AR steps ---------- */
+  .ar { position: absolute; left: 70px; right: 70px; top: 2030px; height: 140px; border-radius: 70px; background: var(--ink);
+        display: flex; align-items: center; justify-content: space-around; color: var(--white); padding: 0 40px; }
+  .step { display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: 36px; }
+  .step .n { width: 76px; height: 76px; border-radius: 50%; background: var(--lav); color: var(--ink); font-weight: 700; font-size: 44px;
+             display: flex; align-items: center; justify-content: center; }
+  .step .arrow { color: var(--lav); font-size: 48px; }
+
+  .footer { position: absolute; left: 0; right: 0; bottom: 44px; text-align: center; font-weight: 500; font-size: 30px; color: #3B3448; }
+  .footer b { font-weight: 700; color: var(--ink); }
+  .footer .sig { font-family: "Pacifico"; color: var(--purple); font-size: 40px; margin: 0 8px; }
+
+  .wm { position: absolute; font-family: "Pacifico"; color: var(--lav2); font-size: 210px; right: -40px; bottom: 210px; transform: rotate(-12deg); z-index: 0; }
+  .menu, .ar, .footer { z-index: 1; }
+
+  .outside-credit { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; font-weight: 600; font-size: 26px; letter-spacing: 6px; color: var(--deep); }
+</style>
+</head>
+<body>
+
+<!-- confetti / doodles behind the card -->
+<svg class="bg" width="1748" height="2480" viewBox="0 0 1748 2480" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#14111B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 40 l14 30 l30 14 l-30 14 l-14 30 l-14 -30 l-30 -14 l30 -14z" fill="#FFFFFF"/>
+    <path d="M1690 60 l10 22 l22 10 l-22 10 l-10 22 l-10 -22 l-22 -10 l22 -10z" fill="#C9B8F2"/>
+    <circle cx="1712" cy="900" r="16" fill="#7C5CC6"/>
+    <circle cx="36" cy="1300" r="12" fill="#FFFFFF"/>
+    <path d="M24 1900 q20 -30 40 0 t40 0" />
+    <path d="M1680 1620 c-10 -20 -40 -10 -30 12 l30 30 l30 -30 c10 -22 -20 -32 -30 -12z" fill="#FFFFFF"/>
+    <circle cx="60" cy="700" r="8" fill="#14111B"/>
+    <circle cx="1700" cy="2200" r="10" fill="#14111B"/>
+  </g>
+</svg>
+
+<div class="card">
+
+  <div class="header">
+    <!-- header doodles -->
+    <svg style="position:absolute;left:0;top:0" width="1564" height="640" viewBox="0 0 1564 640">
+      <g stroke="#14111B" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1300 40 l12 26 l26 12 l-26 12 l-12 26 l-12 -26 l-26 -12 l26 -12z" fill="#FFFFFF"/>
+        <path d="M1500 190 l8 18 l18 8 l-18 8 l-8 18 l-8 -18 l-18 -8 l18 -8z" fill="#7C5CC6"/>
+        <circle cx="1330" cy="200" r="10" fill="#14111B"/>
+        <path d="M440 470 q14 -20 28 0 t28 0 t28 0" transform="translate(760 40)"/>
+        <path d="M1080 40 c-8 -16 -34 -8 -24 10 l24 24 l24 -24 c8 -18 -16 -26 -24 -10z" fill="#FFFFFF"/>
+        <!-- little coffee cup -->
+        <g transform="translate(1390 60) rotate(8) scale(0.85)">
+          <path d="M0 0 h90 v60 a30 30 0 0 1 -30 30 h-30 a30 30 0 0 1 -30 -30z" fill="#FFFFFF"/>
+          <path d="M90 14 a18 18 0 0 1 0 36"/>
+          <path d="M22 -18 q8 -12 0 -24 M48 -18 q8 -12 0 -24" />
+          <circle cx="30" cy="38" r="5" fill="#14111B" stroke="none"/><circle cx="60" cy="38" r="5" fill="#14111B" stroke="none"/>
+          <path d="M36 54 q9 8 18 0"/>
+        </g>
+      </g>
+    </svg>
+
+    <div class="logo"><div class="num">2616</div><div class="est">CAFE</div></div>
+    <div class="title"><div class="big">2616</div><div class="script">cafe</div></div>
+    <div class="tagline">campus bites <span>&#9679;</span> good vibes</div>
+    <div class="ribbon">Student-friendly menu <b>&#9733;</b> scan for 3D food</div>
+
+    <div class="sticker">
+      <div class="s1">scan me!</div>
+      <div class="s2">see your food<br>in 3D</div>
+      <div class="s3">AR menu</div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <!-- PIZZAS -->
+    <div class="section-title"><div class="chip">Pizzas</div><div class="line"></div><div class="no">no. 1</div></div>
+    <div class="item">
+      <div class="art">
+        <svg width="230" height="230" viewBox="0 0 280 280">
+          <g stroke="#14111B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M40 70 Q140 20 240 70 L150 255 Q140 268 130 255 Z" fill="#FFD66B"/>
+            <path d="M34 66 Q140 6 246 66 Q250 92 236 98 Q140 52 44 98 Q30 92 34 66Z" fill="#E9A85A"/>
+            <circle cx="110" cy="120" r="17" fill="#F07A5C"/>
+            <circle cx="170" cy="130" r="15" fill="#F07A5C"/>
+            <circle cx="140" cy="185" r="13" fill="#F07A5C"/>
+            <path d="M95 165 a14 14 0 1 1 1 0" fill="none" stroke="#2F9A4A" stroke-width="7"/>
+            <path d="M188 104 a10 10 0 1 1 1 0" fill="none" stroke="#2F9A4A" stroke-width="6"/>
+            <circle cx="160" cy="215" r="4" fill="#14111B"/>
+          </g>
+          <circle cx="122" cy="150" r="6" fill="#14111B"/><circle cx="158" cy="155" r="6" fill="#14111B"/>
+          <path d="M130 168 q10 9 20 0" stroke="#14111B" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="110" cy="166" rx="9" ry="5" fill="#F7A7C4"/><ellipse cx="170" cy="171" rx="9" ry="5" fill="#F7A7C4"/>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="name-row"><div class="mark"><i></i></div><div class="name">Veggie Cheese Pizza</div></div>
+        <div class="desc">8-inch, 4 slices &middot; mozzarella, bell peppers, onion &amp; sweet corn</div>
+        <div class="meta"><div class="tag p">&#9829; Popular</div><div class="tag">Serves 1-2</div><div class="chili"><svg width="34" height="34" viewBox="0 0 40 40"><path d="M30 8 q-2 -6 4 -6 M28 10 q-20 4 -22 26 q14 -4 26 -22 q2 -4 -4 -4z" fill="#E2603F" stroke="#14111B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg> mild</div></div>
+      </div>
+      <div class="price">&#8377;199</div>
+    </div>
+
+    <!-- BURGERS -->
+    <div class="section-title"><div class="chip" style="transform:rotate(2deg)">Burgers</div><div class="line"></div><div class="no">no. 2</div></div>
+    <div class="item alt">
+      <div class="art dark">
+        <svg width="230" height="230" viewBox="0 0 280 280">
+          <g stroke="#14111B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M40 130 Q40 50 140 50 Q240 50 240 130 Z" fill="#F2B661"/>
+            <path d="M36 140 q18 -18 34 0 t34 0 t34 0 t34 0 t34 0 t34 0 v18 h-204z" fill="#7BC67E"/>
+            <path d="M44 158 h192 l-30 40 l-30 -40" fill="#FFD66B"/>
+            <rect x="40" y="168" width="200" height="38" rx="18" fill="#8A4B34"/>
+            <path d="M44 214 h192 q0 40 -40 40 h-112 q-40 0 -40 -40z" fill="#F2B661"/>
+          </g>
+          <g fill="#FFFFFF" stroke="#14111B" stroke-width="3">
+            <ellipse cx="90" cy="82" rx="8" ry="5"/><ellipse cx="140" cy="68" rx="8" ry="5"/><ellipse cx="190" cy="84" rx="8" ry="5"/>
+            <ellipse cx="115" cy="104" rx="7" ry="4"/><ellipse cx="168" cy="106" rx="7" ry="4"/>
+          </g>
+          <circle cx="118" cy="232" r="6" fill="#14111B"/><circle cx="162" cy="232" r="6" fill="#14111B"/>
+          <path d="M130 242 q10 8 20 0" stroke="#14111B" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="name-row"><div class="mark nv"><i></i></div><div class="name">Classic Chicken Burger</div></div>
+        <div class="desc">grilled chicken, cheese, lettuce, tomato &amp; signature mayo in a sesame bun</div>
+        <div class="meta"><div class="tag k">&#9733; Chef's special</div><div class="tag">Serves 1</div><div class="chili"><svg width="34" height="34" viewBox="0 0 40 40"><path d="M30 8 q-2 -6 4 -6 M28 10 q-20 4 -22 26 q14 -4 26 -22 q2 -4 -4 -4z" fill="#E2603F" stroke="#14111B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg><svg width="34" height="34" viewBox="0 0 40 40"><path d="M30 8 q-2 -6 4 -6 M28 10 q-20 4 -22 26 q14 -4 26 -22 q2 -4 -4 -4z" fill="#E2603F" stroke="#14111B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg> medium</div></div>
+      </div>
+      <div class="price" style="transform:rotate(-3deg)">&#8377;149</div>
+    </div>
+
+    <!-- SNACKS & COMBOS -->
+    <div class="section-title"><div class="chip">Snacks &amp; Combos</div><div class="line"></div><div class="no">no. 3</div></div>
+    <div class="item">
+      <div class="art">
+        <svg width="230" height="230" viewBox="0 0 280 280">
+          <g stroke="#14111B" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+            <!-- drink -->
+            <path d="M175 40 l20 -30" />
+            <path d="M150 70 h90 l-12 170 h-66z" fill="#FFFFFF"/>
+            <path d="M150 70 h90 v18 h-90z" fill="#C9B8F2"/>
+            <path d="M160 140 h70" stroke-dasharray="10 12"/>
+            <!-- fries -->
+            <path d="M52 110 l-6 -70 l22 0 l6 70" fill="#FFD66B"/>
+            <path d="M78 110 l2 -86 l22 2 l-2 84" fill="#FFD66B"/>
+            <path d="M104 110 l10 -76 l22 4 l-8 72" fill="#FFD66B"/>
+            <path d="M126 112 l18 -60 l20 6 l-16 56" fill="#FFD66B"/>
+            <path d="M34 108 h132 l-18 140 h-96z" fill="#7C5CC6"/>
+            <path d="M44 132 h112" stroke="#FFFFFF" stroke-width="6"/>
+            <!-- dip -->
+            <ellipse cx="225" cy="250" rx="34" ry="16" fill="#F07A5C"/>
+          </g>
+          <circle cx="82" cy="178" r="7" fill="#FFFFFF"/><circle cx="118" cy="178" r="7" fill="#FFFFFF"/>
+          <path d="M90 196 q10 9 20 0" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="name-row"><div class="mark"><i></i></div><div class="name">Peri Peri Fries Combo</div></div>
+        <div class="desc">crispy peri peri fries + chilled drink (300 ml) + ketchup dip</div>
+        <div class="meta"><div class="tag p">&#9829; Popular</div><div class="tag">Study-break combo</div><div class="chili"><svg width="34" height="34" viewBox="0 0 40 40"><path d="M30 8 q-2 -6 4 -6 M28 10 q-20 4 -22 26 q14 -4 26 -22 q2 -4 -4 -4z" fill="#E2603F" stroke="#14111B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg><svg width="34" height="34" viewBox="0 0 40 40"><path d="M30 8 q-2 -6 4 -6 M28 10 q-20 4 -22 26 q14 -4 26 -22 q2 -4 -4 -4z" fill="#E2603F" stroke="#14111B" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/></svg> medium</div></div>
+      </div>
+      <div class="price" style="transform:rotate(5deg)">&#8377;129</div>
+    </div>
+  </div>
+
+  <div class="ar">
+    <div class="step"><div class="n">1</div>Open the 2616 AR app</div>
+    <div class="step"><span class="arrow">&#10140;</span></div>
+    <div class="step"><div class="n">2</div>Point at this card</div>
+    <div class="step"><span class="arrow">&#10140;</span></div>
+    <div class="step"><div class="n">3</div>Watch it pop up!</div>
+  </div>
+
+  <div class="footer">AR menu done by <b>Smriti Nukula</b> &amp; <b>Shreyas Abiram YR</b> &middot; &copy; 2026 <span class="sig">~ smriti</span></div>
+</div>
+
+<div class="outside-credit">2616 CAFE &middot; AR MENU BY SMRITI NUKULA</div>
+</body>
+</html>
